@@ -5,7 +5,6 @@ import express from "express";
 import connectDB from "./src/config/db.js";
 
 const app = express();
-const port = 3000;
 
 connectDB();
 app.get("/" , (req , res)=>{
