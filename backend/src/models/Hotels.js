@@ -8,9 +8,10 @@ const HotelsSchema = new mongoose.Schema({
     amenities: {type:[String], default:[]},
     rating :{type:Number,min:0,max:5, default:0.0},
     total_reviews :{type:Number,default:0},
-   
+    created_at: { type: Date, select: false },
 }, {
-    timestamps: { createdAt: "created_at", updatedAt: false }
+    timestamps: { createdAt: "created_at", updatedAt: false },
+    versionKey:false
   }) 
 
 const Hotel = mongoose.model('Hotel',HotelsSchema);

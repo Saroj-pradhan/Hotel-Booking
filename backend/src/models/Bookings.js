@@ -17,7 +17,8 @@ const BookingSchema = new mongoose.Schema({
    
 },
  {
-    timestamps:{createdAt:"booking_date",updatedAt:false}
+    timestamps:{createdAt:"booking_date",updatedAt:false},
+     versionKey:false
  }
 )
 

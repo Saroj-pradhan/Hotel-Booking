@@ -5,12 +5,13 @@ const RoomsSchema = new mongoose.Schema({
     room_type :{type:String,required:true},
     price_per_night:{type:Number,required:true , min:1},
     max_occupancy:{type:Number,required:true , min:1},
-
+     created_at: { type: Date, select: false },
 },
  {
-    timestamps: { createdAt: "created_at", updatedAt: false }
+    timestamps: { createdAt: "created_at", updatedAt: false },
+      versionKey:false
   })
-roomSchema.index({ hotel: 1, room_number: 1 }, { unique: true });
+RoomsSchema.index({ hotel_id: 1, room_number: 1 }, { unique: true });
 
 const Room = mongoose.model("Room",RoomsSchema);
 export default Room;
