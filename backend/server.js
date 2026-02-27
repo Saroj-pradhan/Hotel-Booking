@@ -7,14 +7,15 @@ import connectDB from "./src/config/db.js";
 import userRoutes from "./src/routes/userRoutes.js"
 import hotelsRoutes from './src/routes/hotelsRoutes.js'
 import bookingRoutes from "./src/routes/bookingRoutes.js"
+import reviewRoutes from "./src/routes/reviewRoutes.js"
 const app = express();
 app.use(express.json()) 
 
 connectDB();
 app.use('/api/auth',userRoutes);
-app.use("/api/hotels",hotelsRoutes)
-app.use("/api/bookings",bookingRoutes)
-
+app.use("/api/hotels",hotelsRoutes);
+app.use("/api/bookings",bookingRoutes);
+app.use("/api/reviews",reviewRoutes);
 app.get("/" , (req , res)=>{
 res.send("i am active")
 })

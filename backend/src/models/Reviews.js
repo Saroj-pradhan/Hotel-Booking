@@ -7,13 +7,12 @@ const ReviewsSchema =new mongoose.Schema({
        rating :{type:Number,min:1 , max:5},
        comment:{type:String},
        created_at:{type:Date,select:false}
-   
 },{
     timestamps:{createdAt:"created_at",updatedAt:false},
      versionKey:false
 })
 
-reviewSchema.index({ user: 1, booking: 1 }, { unique: true });
+ReviewsSchema.index({ user: 1, booking: 1 }, { unique: true });
 
 const Review = mongoose.model("Review",ReviewsSchema);
 export default Review;

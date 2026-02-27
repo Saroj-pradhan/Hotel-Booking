@@ -41,7 +41,7 @@ try {
     const { hotelId } = req.params;
        const HotelDetail =await Hotel.findOne({_id:hotelId});
        if(!HotelDetail) throw new ApiError(404,"HOTEL_NOT_FOUND");
-       if(!HotelDetail.owner_id == user.id) throw new ApiError(403,"FORBIDDEN");
+       if(!HotelDetail.owner_id.equals(user.id)) throw new ApiError(403,"FORBIDDEN");
     
   const isExistRoom =await Room.exists({hotel_id : hotelId,  room_number:roomNumber});
   if(isExistRoom) throw new ApiError(400,"ROOM_ALREADY_EXISTS");
